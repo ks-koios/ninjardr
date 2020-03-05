@@ -1,0 +1,10 @@
+{
+    "destructoid" : {
+        "name": "Destructoid",
+        "url": "h2",
+        "articles_tag": "sparticle_title",
+        "articles_class": ["a", "text"],
+        "child_tags": ["a"],
+        "link_tags": []
+    }
+}

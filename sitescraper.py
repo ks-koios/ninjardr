@@ -14,11 +14,11 @@ class SiteScraper:
     link_tags           -- list of child tags and attributes from parent class to get to article <a> tag
     """
 
-    def __init__(self, site_name, url, article_tag, article_class, child_tags, link_tags):
+    def __init__(self, site_name, url, articles_tag, articles_class, child_tags, link_tags):
         self.site_name = site_name
         self.url = url
-        self.article_tag = article_tag
-        self.article_class = article_class
+        self.articles_tag = articles_tag
+        self.articles_class = articles_class
         self.child_tags = child_tags
         self.link_tags = link_tags
 
@@ -29,7 +29,7 @@ class SiteScraper:
 
     def get_articles(self):
         articles = []
-        article_html_list = self.get_site_html().findAll(self.article_tag, self.article_class)
+        article_html_list = self.get_site_html().findAll(self.articles_tag, self.articles_class)
         for i, article in enumerate(article_html_list, 1):
             for tag in self.link_tags:
                 link = getattr(article, tag)
@@ -43,8 +43,12 @@ class SiteScraper:
 
         return articles
         
-
     def print_articles(self):
         for i, article in enumerate(self.get_articles(), 1):
             print(f"{i}) {article[0]}")
-        
+
+    def get_article(self):
+        pass
+
+    def print_article(self):
+        pass

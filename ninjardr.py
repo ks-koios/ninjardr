@@ -1,6 +1,11 @@
+import json
+
 from sitescraper import SiteScraper
 
 if __name__ == "__main__":
+    sites = json.loads(".\site-list.json")
+    print(sites)
+
     destructoid = SiteScraper(
         "Destructoid",
         "https://www.destructoid.com",
