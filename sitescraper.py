@@ -19,4 +19,9 @@ class SiteScraper:
 
     @abstractmethod
     def print_article_list(self):
-        pass
+        raise NotImplementedError
+
+    class DestructoidScraper(SiteScraper):
+        def print_article_list(self):
+                pass
+
