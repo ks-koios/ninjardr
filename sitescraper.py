@@ -47,8 +47,6 @@ class SiteScraper:
         for i, article in enumerate(self.get_articles(), 1):
             print(f"{i}) {article[0]}")
 
-    def get_article(self):
-        pass
-
     def print_article(self, choice):
-        pass
+        articles = self.get_articles()
+        print(articles[choice])

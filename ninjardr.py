@@ -48,7 +48,8 @@ if __name__ == "__main__":
                 article_choice = input("Select an article (q to quit, b to go back): ")
 
                 if article_choice.isdigit() is True:
-                    article_choice = int(choice - 1)
+                    article_choice = int(article_choice) - 1
+                    print("\n")
                     scrapers[choice].print_article(article_choice)
                 elif article_choice.lower() == 'b':
                     break
