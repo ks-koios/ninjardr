@@ -31,9 +31,9 @@ if __name__ == "__main__":
     hr = "------------------------------"
     scrapers = create_scrapers("site-list.json")
 
-    print(f"\nWelcome to ninja reader!\n{hr}")
-
     while True:
+        _ = os.system('cls')
+        print(f"\nWelcome to ninja reader!\n{hr}")
         print(f"\nSite List:\n{hr}")
         for i, scraper in enumerate(scrapers, 1):
             print(f"{i}) {scraper.site_name}")
@@ -44,6 +44,7 @@ if __name__ == "__main__":
         if choice.isdigit() is True:
             choice = int(choice) - 1
             while True:
+                _ = os.system('cls')
                 print(f"\n{scrapers[choice].site_name}")
                 print(hr)
                 print(scrapers[choice].print_articles())
@@ -53,13 +54,14 @@ if __name__ == "__main__":
 
                 if article_choice.isdigit() is True:
                     article_choice = int(article_choice) - 1
-                    print("\n")
+                    _ = os.system('cls')
                     scrapers[choice].print_article(article_choice)
                     print("\n\n")
                     os.system("pause")
                 elif article_choice.lower() == 'b':
                     break
                 elif article_choice.lower() == 'q':
+                    _ = os.system('cls')
                     sys.exit(0)
           
         elif choice.lower() == 'q':

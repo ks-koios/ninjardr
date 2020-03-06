@@ -8,5 +8,4 @@
 2. Article read/unread
 3. Recently read list
 4. Save feature or favourites \ save to text and open
-5. Clear screen after each menu
-6. less on article
+5. less on article
