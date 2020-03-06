@@ -2,6 +2,7 @@ import json
 import sys
 import os
 
+
 from sitescraper import SiteScraper
 
 def create_scrapers(site_list_file):
@@ -57,8 +58,6 @@ if __name__ == "__main__":
                     article_choice = int(article_choice) - 1
                     _ = os.system('cls')
                     scrapers[choice].print_article(article_choice)
-                    print("\n\n")
-                    os.system("pause")
                 elif article_choice.lower() == 'b':
                     break
                 elif article_choice.lower() == 'q':

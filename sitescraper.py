@@ -2,6 +2,7 @@ import requests
 import urllib.request
 import pickle
 import os
+import webbrowser
 
 from datetime import datetime
 from bs4 import BeautifulSoup
@@ -99,11 +100,15 @@ class SiteScraper:
     
     def print_article(self, choice):
         article_name, article_url, paragraphs = self.get_article(choice)
-        print(f"=== {article_name} ==\n\n")
+        print(f"=== {article_name} ===\n\n")
         for p in paragraphs:
             print(f"{p.text}")
         print("\n")
         print(f"From: {article_url}")
+        print("\n\n")
+        open_option = input("'y' to open link in browser, otherwise enter any key: ")
+        if open_option.lower() == 'y':
+            webbrowser.open(article_url)
         
 
         
