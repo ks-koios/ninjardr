@@ -17,7 +17,8 @@ def create_scrapers(site_list_file):
             site["articles_tag"],
             site["articles_class"],
             site["child_tags"],
-            site["link_tags"]
+            site["link_tags"],
+            site["url_pre"],
         ))
 
     return scrapers         

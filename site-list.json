@@ -5,6 +5,7 @@
         "articles_tag": "h2",
         "articles_class": "sparticle_title",
         "child_tags": ["a", "text"],
-        "link_tags": ["a"]
+        "link_tags": ["a"],
+        "url_pre" : "https://www.destructoid.com/"
     }
 }
