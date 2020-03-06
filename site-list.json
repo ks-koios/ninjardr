@@ -6,6 +6,8 @@
         "articles_class": "sparticle_title",
         "child_tags": ["a", "text"],
         "link_tags": ["a"],
-        "url_pre" : "https://www.destructoid.com/"
+        "url_pre" : "https://www.destructoid.com/",
+        "article_tag": "div",
+        "article_class": "article_postcontent"
     }
 }
