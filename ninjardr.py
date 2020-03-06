@@ -66,4 +66,5 @@ if __name__ == "__main__":
                     sys.exit(0)
           
         elif choice.lower() == 'q':
+            _ = os.system('cls')
             break

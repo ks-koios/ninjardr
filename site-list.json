@@ -34,5 +34,17 @@
         "article_tag": "main",
         "article_hasID" : false,
         "article_class": ""
+    },
+    "polygon" : {
+        "name" : "Polygon",
+        "url" : "https://www.polygon.com",
+        "articles_tags": ["h2"],
+        "articles_class": "c-entry-box--compact__title",
+        "child_tags": ["a", "text"],
+        "link_tags": ["a"],
+        "url_pre": "",
+        "article_tag": "div",
+        "article_hasID" : false,
+        "article_class": "c-entry-content"
     }
 }
