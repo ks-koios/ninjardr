@@ -4,7 +4,7 @@
 
 ### To-Do
 1. Clean and error check input
-2. Save site list temp for a day unless asked for a forced refresh
+2. Save site list in cache
 2. Article read/unread
 3. Recently read list
 4. Save feature or favourites \ save to text and open
