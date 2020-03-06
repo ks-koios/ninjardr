@@ -61,7 +61,7 @@ class SiteScraper:
 
     def get_article(self, choice):
         articles = self.get_articles()
-        article_name = articles[choice]
+        article_name = articles[choice][0]
         article_url = self.url_pre + articles[choice][1]
         response = requests.get(article_url)
         soup = BeautifulSoup(response.text, "html.parser")
@@ -75,7 +75,7 @@ class SiteScraper:
         article_name, article_url, paragraphs = self.get_article(choice)
         print(f"=== {article_name} ==\n\n")
         for p in paragraphs:
-            print(p.text)
+            print(f"{p.text}\n")
         print(f"From: {article_url}")
         
 
