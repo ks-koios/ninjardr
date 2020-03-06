@@ -15,12 +15,13 @@ def create_scrapers(site_list_file):
         scrapers.append(SiteScraper(
             site["name"],
             site["url"],
-            site["articles_tag"],
+            site["articles_tags"],
             site["articles_class"],
             site["child_tags"],
             site["link_tags"],
             site["url_pre"],
             site["article_tag"],
+            site["article_hasID"],
             site["article_class"],
         ))
 

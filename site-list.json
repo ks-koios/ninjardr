@@ -1,13 +1,38 @@
 {
     "destructoid" : {
         "name": "Destructoid",
-        "url": "https://wwww.destructoid.com",
-        "articles_tag": "h2",
+        "url": "https://www.destructoid.com",
+        "articles_tags": ["h2"],
         "articles_class": "sparticle_title",
         "child_tags": ["a", "text"],
         "link_tags": ["a"],
         "url_pre" : "https://www.destructoid.com/",
         "article_tag": "div",
+        "article_hasID" : true,
         "article_class": "article_postcontent"
+    },
+    "gameinformer" : {
+        "name": "GameInformer",
+        "url": "https://www.gameinformer.com",
+        "articles_tags": ["h2"],
+        "articles_class": "article-title",
+        "child_tags": ["a", "text"],
+        "link_tags": ["a"],
+        "url_pre": "https://www.gameinformer.com",
+        "article_tag": "div",
+        "article_hasID" : false,
+        "article_class": "field--name-body"
+    },
+    "rock-paper-shotgun" : {
+        "name" : "Rock, Paper, Shotgun",
+        "url" : "https://www.rockpapershotgun.com",
+        "articles_tags": ["p"],
+        "articles_class": "title",
+        "child_tags": ["a", "text"],
+        "link_tags": ["a"],
+        "url_pre": "",
+        "article_tag": "main",
+        "article_hasID" : false,
+        "article_class": ""
     }
 }
