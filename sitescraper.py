@@ -30,7 +30,7 @@ class SiteScraper:
     def get_articles(self):
         articles = []
         article_html_list = self.get_site_html().findAll(self.articles_tag, self.articles_class)
-        for i, article in enumerate(article_html_list, 1):
+        for article in article_html_list:
             for tag in self.link_tags:
                 link = getattr(article, tag)
 
@@ -50,5 +50,5 @@ class SiteScraper:
     def get_article(self):
         pass
 
-    def print_article(self):
+    def print_article(self, choice):
         pass
