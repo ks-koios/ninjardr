@@ -2,18 +2,27 @@ import json
 
 from sitescraper import SiteScraper
 
-if __name__ == "__main__":
-    sites = json.loads(".\site-list.json")
-    print(sites)
+def scraper_factory(site_list_file):
+    with open(site_list_file) as f:
+        site_list = f.read()
 
-    destructoid = SiteScraper(
-        "Destructoid",
-        "https://www.destructoid.com",
-        "h2",
-        "sparticle_title",
-        ["a", "text"],
-        ["a"]
-        )
-    
-    #print(destructoid.get_article_list())
-    print(destructoid.print_articles())
+    sites = json.loads(site_list)
+
+    scrapers = []
+    for _, site in sites.items():
+        scrapers.append(SiteScraper(
+            site["name"],
+            site["url"],
+            site["articles_tag"],
+            site["articles_class"],
+            site["child_tags"],
+            site["link_tags"]
+        ))
+
+    return scrapers
+
+if __name__ == "__main__":
+    scrapers = scraper_factory("site-list.json")
+      
+    for scraper in scrapers:
+        print(scraper.print_articles())
