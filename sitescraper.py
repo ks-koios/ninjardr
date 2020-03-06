@@ -1,7 +1,9 @@
 import requests
 import urllib.request
-import time
+import pickle
+import os
 
+from datetime import datetime
 from bs4 import BeautifulSoup
 
 
@@ -42,21 +44,41 @@ class SiteScraper:
         response = requests.get(url)
         return BeautifulSoup(response.text, "html.parser")
 
+    def write_to_cache(self, site, article_list, date):
+        with open(f"cache/{site}_{date}", "wb+") as f:
+            pickle.dump(article_list, f)
+
+    def is_site_cached(self, site, date):
+        if os.path.exists(f"cache/{site}_{date}"):
+            return True
+        else:
+            return False
+
+    def get_cache(self, site, date):
+        with open(f"cache/{site}_{date}", "rb") as f:
+            articles = pickle.load(f)
+
+        return articles
+
     def get_articles(self):
-        articles = []
-        for art_tag in self.articles_tags:
-            article_html_list = self.get_site_html(self.url).findAll(art_tag, self.articles_class)
-            for article in article_html_list:
-                for tag in self.link_tags:
-                    link = getattr(article, tag)
+        date = datetime.today().strftime("%Y-%m-%d")
+        if self.is_site_cached(self.site_name, date):
+                articles = self.get_cache(self.site_name, date)
+        else:
+            articles = []
+            for art_tag in self.articles_tags:
+                article_html_list = self.get_site_html(self.url).findAll(art_tag, self.articles_class)
+                for article in article_html_list:
+                    for tag in self.link_tags:
+                        link = getattr(article, tag)
 
-                link = link["href"]
+                    link = link["href"]
 
-                for tag in self.child_tags:
-                    article = getattr(article, tag)
+                    for tag in self.child_tags:
+                        article = getattr(article, tag)
 
-                articles.append((article, link))
-
+                    articles.append((article, link))
+            self.write_to_cache(self.site_name, articles, date)
         return articles
         
     def print_articles(self):
